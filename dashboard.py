@@ -37,21 +37,21 @@ def generate_tldr(competitor_df):
         return "Insufficient data to generate summary."
     if competitor_df['competitor'].iloc[0] == 'cursor_ai':
         return "Cursor:\n" \
-               "    •    Likes: While specific positive comments weren't prominent in the " \
+               "• Likes: While specific positive comments weren't prominent in the " \
                "dataset, users likely appreciate features related to streamlined workflows " \
                "and the tool's user interface, as these are common praise points for " \
                "similar platforms.\n" \
-               "    •    Dislikes: User frustrations generally revolve around potential " \
+               "• Dislikes: User frustrations generally revolve around potential " \
                "compatibility issues, performance speed, or limitations in integration " \
                "with other tools, as these are typical challenges faced by emerging tools " \
                "in this category."
     elif competitor_df['competitor'].iloc[0] == 'codeiumdev':
         return "Codeium:\n" \
-               "    •    Likes: Users frequently highlight Codeium's accessibility and " \
+               "• Likes: Users frequently highlight Codeium's accessibility and " \
                "ease of use, with particular praise for features that enhance " \
                "productivity. \"Wow\" mentions suggest users are positively surprised by " \
                "Codeium's functionality and intuitiveness.\n" \
-               "    •    Dislikes: Some users report issues related to occasional " \
+               "• Dislikes: Some users report issues related to occasional " \
                "performance lags, bugs, or challenges in specific use cases, which may " \
                "affect their experience. Negative \"pain\" tags indicate these issues can " \
                "hinder the tool's efficiency."
@@ -90,7 +90,8 @@ for competitor in competitors:
         
         # Generate and display TLDR
         st.subheader("Summary")
-        st.text(generate_tldr(competitor_df))
+
+        st.markdown(generate_tldr(competitor_df), unsafe_allow_html=True)
         
 
         # Display collapsible table with highlighted rows
